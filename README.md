@@ -38,16 +38,17 @@ Here are the compiler options that I used for the compiled languages:
 
 Another interesting aspect was how long the programs ended up being:
 
-	Language	Lines	
-	Python	5	
-	Ruby	7	
-	JavaScript	10	
-	Haskell 15	
-	Rust	17	
-	Scala	17	
-	Java	23	
-	Go	40	
-	C	51
+	Language      Lines 
+	Python        5 
+	Ruby          7 
+	JavaScript    10 
+	Haskell       15 
+	Rust          17 
+	Scala         17 
+	Java          23 
+	Go            40 
+	C             51
+
 
 ### More advanced benchmarks:
 
