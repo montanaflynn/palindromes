@@ -1,6 +1,6 @@
 # Palindromes
 
-Learning exercise by writing the same program in many languages. 
+Learning exercise that quickly [outgrew a simple gist](https://gist.github.com/montanaflynn/5468db2a817f12f44ee5/revisions).
 
 ### How it was done:
 
