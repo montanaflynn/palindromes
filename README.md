@@ -52,7 +52,199 @@ Another interesting aspect was how long the programs ended up being:
 
 ### More advanced benchmarks:
 
-I've included a `benchmark.json` file which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path.
+I've included a `benchmark.json` file which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path if you want to benchmark the programs yourself. Here's the output if you just want the numbers:
+
+	{
+	  "C": {
+	    "lines": 51,
+	    "length": 666,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 32,
+	      "max": 55,
+	      "total": 3391,
+	      "average": "33.91",
+	      "stdDev": "2.70",
+	      "percentile": {
+	        "95th": 38,
+	        "75th": 34,
+	        "50th": 33,
+	        "25th": 32,
+	        "5th": 33
+	      }
+	    }
+	  },
+	  "Go": {
+	    "lines": 40,
+	    "length": 553,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 111,
+	      "max": 123,
+	      "total": 11382,
+	      "average": "113.82",
+	      "stdDev": "2.20",
+	      "percentile": {
+	        "95th": 117,
+	        "75th": 115,
+	        "50th": 113,
+	        "25th": 112,
+	        "5th": 113
+	      }
+	    }
+	  },
+	  "Haskell": {
+	    "lines": 15,
+	    "length": 287,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 198,
+	      "max": 239,
+	      "total": 20884,
+	      "average": "208.84",
+	      "stdDev": "7.49",
+	      "percentile": {
+	        "95th": 226,
+	        "75th": 212,
+	        "50th": 207,
+	        "25th": 204,
+	        "5th": 207
+	      }
+	    }
+	  },
+	  "Java": {
+	    "lines": 23,
+	    "length": 564,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 244,
+	      "max": 262,
+	      "total": 25028,
+	      "average": "250.28",
+	      "stdDev": "3.14",
+	      "percentile": {
+	        "95th": 256,
+	        "75th": 252,
+	        "50th": 250,
+	        "25th": 248,
+	        "5th": 250
+	      }
+	    }
+	  },
+	  "JavaScript": {
+	    "lines": 10,
+	    "length": 312,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 197,
+	      "max": 226,
+	      "total": 20401,
+	      "average": "204.01",
+	      "stdDev": "4.04",
+	      "percentile": {
+	        "95th": 210.5,
+	        "75th": 206,
+	        "50th": 203,
+	        "25th": 202,
+	        "5th": 203
+	      }
+	    }
+	  },
+	  "Python": {
+	    "lines": 5,
+	    "length": 147,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 221,
+	      "max": 238,
+	      "total": 22663,
+	      "average": "226.63",
+	      "stdDev": "3.57",
+	      "percentile": {
+	        "95th": 233.5,
+	        "75th": 229,
+	        "50th": 226,
+	        "25th": 224,
+	        "5th": 226
+	      }
+	    }
+	  },
+	  "Ruby": {
+	    "lines": 7,
+	    "length": 140,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 143,
+	      "max": 168,
+	      "total": 14911,
+	      "average": "149.11",
+	      "stdDev": "5.20",
+	      "percentile": {
+	        "95th": 160,
+	        "75th": 151,
+	        "50th": 148,
+	        "25th": 145,
+	        "5th": 148
+	      }
+	    }
+	  },
+	  "Rust": {
+	    "lines": 17,
+	    "length": 438,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 35,
+	      "max": 39,
+	      "total": 3608,
+	      "average": "36.08",
+	      "stdDev": "0.63",
+	      "percentile": {
+	        "95th": 37,
+	        "75th": 36,
+	        "50th": 36,
+	        "25th": 36,
+	        "5th": 36
+	      }
+	    }
+	  },
+	  "Scala": {
+	    "lines": 17,
+	    "length": 304,
+	    "results": {
+	      "runs": "100",
+	      "success": 100,
+	      "error": 0,
+	      "min": 495,
+	      "max": 537,
+	      "total": 50913,
+	      "average": "509.13",
+	      "stdDev": "9.07",
+	      "percentile": {
+	        "95th": 528.5,
+	        "75th": 514.5,
+	        "50th": 507,
+	        "25th": 502,
+	        "5th": 507
+	      }
+	    }
+	  }
+	}
 
 ### Things I want to do: 
 
