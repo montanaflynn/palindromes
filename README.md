@@ -52,7 +52,9 @@ Another interesting aspect was how long the programs ended up being:
 
 ### More advanced benchmarks:
 
-I've included a `benchmark.json` file which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path if you want to benchmark the programs yourself. Here's the output if you just want the numbers:
+I've included a `benchmark.json` file which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path if you want to benchmark the programs yourself. 
+
+Here's the output if you just want the numbers:
 
 	{
 	  "C": {
