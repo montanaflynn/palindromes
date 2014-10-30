@@ -1,13 +1,12 @@
 var subshell = require('child_process')
-var files = require('./files.json')
 
-benchmark(files, { runs: 100, verbose: true })
+module.exports = function(files, options) {
 
-function benchmark(files, options) {
-
+  // Option defaults
   options = options || {}
   options.runs = options.runs || 10
 
+  // Build list of programs to test and data structure
   var list = [], data = {}
   for (var i = 0; i < files.length; i++) {
     var file = files[i]
@@ -29,58 +28,88 @@ function benchmark(files, options) {
     }
   }
 
+  // Run until done!
   (function run(list, data) {
-    if (list.length) {
+
+    // If we're done with all the languages analyze the results
+    if (!list.length) {
+      analyze(data)
+
+    // otherwise keep moving forward
+    } else {
+
+      // Get the language data from the list
       var language = list[0]
       var item = data[language]
-      if (item.runs.length < options.runs) {
+
+      // If we have no more runs to go for this language
+      if (item.runs.length == options.runs) {
+        delete item.execute
+        list.shift()
+        run(list, data)
+
+      // On to the next run
+      } else {
+
+        // Execute the program
         var command = item.execute
         execute(command, function(code, output, time){
+
+          // Wha happen?
           var outcome = code ? "error" : "success"
+
+          // Be loud
           if (options.verbose){
             var runNums = " run #" + item.runs.length
             var outcomeStr = " outcome: " + outcome + " ("+time+"ms)"
             console.log(language + runNums + outcomeStr)
           }
 
-          var result = {
+          // Keep score
+          item.runs.push({
             time: time,
             code: code,
             output: output,
             outputlines: (output.split("\n").length - 1),
             outputlength: output.length
-          }
+          })
 
-          item.runs.push(result)
+          // On to the next run
           run(list, data)
         })
-      } else {
-        delete item.execute
-        list.shift()
-        run(list ,data)
       }
-    } else {
-      analyze(data)
     }
   })(list,data)
 
+  // Execute the code
   function execute(command, callback) {
-    var time = process.hrtime()
-    var ls = subshell.exec(command)
-    var stdout = ""
 
+    // For benchmarking processing time
+    var time = process.hrtime()
+
+    // Run it!
+    var ls = subshell.exec(command)
+
+    // Get all stdout
+    var stdout = ""
     ls.stdout.on('data', function (data) {
       stdout += data
     })
      
+    // process is done
     ls.on('exit', function (code) {
+
+      // How long it took
       var diff = process.hrtime(time)
       var processingTime = diff[0] * 1e9 + diff[1]
       processingTime = Math.ceil(processingTime / 1000000)
+
+      // Send the metrics back to our runner
       callback(code, stdout, processingTime)
     })
   }
 
+  // Analyze the results
   function analyze(data) {
 
     for (lang in data) {
