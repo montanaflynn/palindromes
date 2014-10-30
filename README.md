@@ -12,7 +12,7 @@ The logic for finding the palindromes is simple and each program must return the
 	- Compare the lowercased word to it in reverse
 	- If a match print `word + " is a palindrome"`
 
-### Quick n' dirty benchmarks:
+### Quick n' dirty benchmarks and metrics:
 
 I ran each program 10 times with `time` and picked the fastest result:
 
@@ -36,11 +36,24 @@ Here are the compiler options that I used for the compiled languages:
 	javac -O palindromes.java
 	scalac -optimise palindromes.scala
 
+Another interesting aspect was how long the programs ended up being:
+
+	Language	Lines	
+	Python	5	
+	Ruby	7	
+	JavaScript	10	
+	Haskell 15	
+	Rust	17	
+	Scala	17	
+	Java	23	
+	Go	40	
+	C	51
+
 ### More advanced benchmarks:
 
-See the `Benchmarks` directory for a script that will run each language many times and output a JSON file with advances stats and performance metrics. You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path.
+I've included a `benchmark.json` file which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path.
 
 ### Things I want to do: 
 
-- Further optimizations
 - Create a Makefile
+- Further optimizations
