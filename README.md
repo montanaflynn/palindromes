@@ -4,8 +4,7 @@ Learning exercise by writing the same program in multiple languages.
 
 ### How it was done:
 
-The logic for finding the palindromes is simple and each program 
-returns the same output to stdout. Here is a the algorithm:
+The logic for finding the palindromes is simple and each program must return the same to stdout.
 
 - Open `/usr/share/dict/words`
 - Iterate over each word in the dictionary 
@@ -28,10 +27,7 @@ returns the same output to stdout. Here is a the algorithm:
  
 ### More advanced benchmarks:
 
-See the `Benchmarks` directory for a script that will run each language
-many times and output a JSON file with advances stats and performance
-metrics. You must first compile the C, Go, Haskell, Java, Scala and Rust 
-programs and have Java, Scala, Ruby and Python available in your path.
+See the `Benchmarks` directory for a script that will run each language many times and output a JSON file with advances stats and performance metrics. You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path.
 
 ### Things I want to do: 
 
