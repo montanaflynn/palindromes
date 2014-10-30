@@ -1,6 +1,6 @@
-# Palindromes Benchmarks
+# Palindromes
 
-Learning exercise by writing the same program in multiple languages. 
+Learning exercise by writing the same program in many languages. 
 
 ### How it was done:
 
