@@ -5,20 +5,11 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
+	"unicode"
 )
 
-func Reverser(s string) string {
-	n := len(s)
-	runes := make([]rune, n)
-	for _, rune := range s {
-		n--
-		runes[n] = rune
-	}
-	return string(runes[n:])
-}
-
 func main() {
+
 	file, err := os.Open("/usr/share/dict/words")
 	defer file.Close()
 	if err != nil {
@@ -27,14 +18,28 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		word := strings.ToLower(scanner.Text())
-		backwards := Reverser(word)
-		if word == backwards {
-			fmt.Printf("%s is a palindrome\n", scanner.Text())
+
+		word := scanner.Text()
+
+		// Lowercase first letter
+		a := []rune(word)
+		a[0] = unicode.ToLower(a[0])
+		lowercase := string(a)
+
+		//  Reverse the string
+		n := len(lowercase)
+		runes := make([]rune, n)
+		for _, rune := range lowercase {
+			n--
+			runes[n] = rune
 		}
+		backwards := string(runes[n:])
+
+		// Check for match
+		if lowercase == backwards {
+		    fmt.Printf("%s is a palindrome\n", word)
+		}
+
 	}
 
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
 }
