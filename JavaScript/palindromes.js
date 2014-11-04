@@ -2,7 +2,7 @@ var fs = require('fs')
  
 var words = fs.readFileSync('/usr/share/dict/words').toString().split("\n")
 
-for (var i = words.length - 1; i >= 0; i--) {
+for (var i = 0, len = words.length; i < len; i++) {
   if (words[i].length === 0) continue
   var forwards = words[i].toLowerCase()
   var backwards = forwards.split("").reverse().join("")
