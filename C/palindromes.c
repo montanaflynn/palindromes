@@ -2,20 +2,8 @@
 #include <string.h>
 #include <ctype.h>
 
-void trim(char *line)
-{
-    int new_line = strlen(line) -1;
-    if (line[new_line] == '\n')
-        line[new_line] = '\0';
-}
-
 void reverse(char *str)
 {
-    if (str == 0 || *str == 0)
-    {
-        return;
-    }
-
     char *start = str;
     char *end = start + strlen(str) - 1; 
     char temp;
@@ -39,7 +27,6 @@ int main()
     while (fgets(line, sizeof(line), fp) != NULL)
     {
         int linelen = strlen(line) + 1;
-        trim(line);
         char word[linelen];
         strcpy(word, line);
         line[0] = tolower(line[0]);
