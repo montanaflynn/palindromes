@@ -20,7 +20,7 @@ I ran each program 10 times with `time` and picked the fastest result:
 
     Clang 600.0.51:  0.03s user   0.00s system    96% cpu   0.031 total
     Rust 0.12.0:     0.03s user   0.00s system    95% cpu   0.036 total
-    GO 1.3.1:        0.11s user   0.01s system   101% cpu   0.112 total
+    Golang 1.3.1:    0.06s user   0.00s system    98% cpu   0.064 total
     Ruby 2.0.0:      0.15s user   0.01s system    99% cpu   0.154 total
     Node 0.11.13:    0.18s user   0.03s system   101% cpu   0.201 total
     Haskell 7.8.3:   0.20s user   0.01s system    99% cpu   0.211 total
@@ -33,193 +33,49 @@ Here are the compiler options that I used for the compiled languages:
 
     gcc -O3 -o palindromes palindromes.c
     rustc --opt-level=3 palindromes.rs
-    go build -o ./palindromes build
+    go build -o ./palindromes palindromes.go
     ghc -O palindromes.hs
     javac -O palindromes.java
     scalac -optimise palindromes.scala
-
-Another interesting aspect was how long the programs ended up being:
-
-    Language      Lines 
-    Python        5 
-    Ruby          7 
-    JavaScript    10 
-    Haskell       15 
-    Rust          17 
-    Scala         17 
-    Java          23 
-    Go            40 
-    C             51
-
 
 ### More advanced benchmarks:
 
 I've included a `benchmark.json` file which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). You must first compile the C, Go, Haskell, Java, Scala and Rust programs and have Java, Scala, Ruby and Python available in your path if you want to benchmark the programs yourself. 
 
-Here's the output if you just want the numbers:
+Here's the output from the benchmarker if you just want the numbers:
 
     {
       "C": {
-        "lines": 51,
-        "length": 666,
         "results": {
           "runs": "100",
           "success": 100,
           "error": 0,
           "min": 31,
-          "max": 37,
-          "total": 3222,
-          "average": "32.22",
-          "stdDev": "1.12",
+          "max": 39,
+          "total": 3287,
+          "average": "32.87",
+          "stdDev": "1.43",
           "percentile": {
-            "95th": 34,
-            "75th": 33,
+            "95th": 35.5,
+            "75th": 33.5,
             "50th": 32,
-            "25th": 31,
+            "25th": 32,
             "5th": 32
           }
         }
       },
-      "Go": {
-        "lines": 40,
-        "length": 553,
-        "results": {
-          "runs": "100",
-          "success": 100,
-          "error": 0,
-          "min": 109,
-          "max": 120,
-          "total": 11276,
-          "average": "112.76",
-          "stdDev": "1.55",
-          "percentile": {
-            "95th": 115.5,
-            "75th": 113,
-            "50th": 113,
-            "25th": 112,
-            "5th": 113
-          }
-        }
-      },
-      "Haskell": {
-        "lines": 15,
-        "length": 287,
-        "results": {
-          "runs": "100",
-          "success": 100,
-          "error": 0,
-          "min": 194,
-          "max": 234,
-          "total": 20504,
-          "average": "205.04",
-          "stdDev": "6.49",
-          "percentile": {
-            "95th": 217,
-            "75th": 208,
-            "50th": 203.5,
-            "25th": 201,
-            "5th": 203.5
-          }
-        }
-      },
-      "Java": {
-        "lines": 23,
-        "length": 564,
-        "results": {
-          "runs": "100",
-          "success": 100,
-          "error": 0,
-          "min": 240,
-          "max": 259,
-          "total": 24587,
-          "average": "245.87",
-          "stdDev": "3.25",
-          "percentile": {
-            "95th": 251,
-            "75th": 247,
-            "50th": 245,
-            "25th": 244,
-            "5th": 245
-          }
-        }
-      },
-      "JavaScript": {
-        "lines": 10,
-        "length": 312,
-        "results": {
-          "runs": "100",
-          "success": 100,
-          "error": 0,
-          "min": 193,
-          "max": 221,
-          "total": 20014,
-          "average": "200.14",
-          "stdDev": "4.28",
-          "percentile": {
-            "95th": 206.5,
-            "75th": 202,
-            "50th": 199.5,
-            "25th": 197,
-            "5th": 199.5
-          }
-        }
-      },
-      "Python": {
-        "lines": 5,
-        "length": 147,
-        "results": {
-          "runs": "100",
-          "success": 100,
-          "error": 0,
-          "min": 216,
-          "max": 269,
-          "total": 22847,
-          "average": "228.47",
-          "stdDev": "11.15",
-          "percentile": {
-            "95th": 256.5,
-            "75th": 232.5,
-            "50th": 224.5,
-            "25th": 222,
-            "5th": 224.5
-          }
-        }
-      },
-      "Ruby": {
-        "lines": 7,
-        "length": 140,
-        "results": {
-          "runs": "100",
-          "success": 100,
-          "error": 0,
-          "min": 141,
-          "max": 163,
-          "total": 14721,
-          "average": "147.21",
-          "stdDev": "4.51",
-          "percentile": {
-            "95th": 156,
-            "75th": 149,
-            "50th": 146,
-            "25th": 144,
-            "5th": 146
-          }
-        }
-      },
       "Rust": {
-        "lines": 17,
-        "length": 438,
         "results": {
           "runs": "100",
           "success": 100,
           "error": 0,
           "min": 35,
-          "max": 48,
-          "total": 3628,
-          "average": "36.28",
-          "stdDev": "1.63",
+          "max": 42,
+          "total": 3616,
+          "average": "36.16",
+          "stdDev": "0.91",
           "percentile": {
-            "95th": 39,
+            "95th": 37,
             "75th": 36,
             "50th": 36,
             "25th": 36,
@@ -227,24 +83,136 @@ Here's the output if you just want the numbers:
           }
         }
       },
-      "Scala": {
-        "lines": 17,
-        "length": 304,
+      "Go": {
         "results": {
           "runs": "100",
           "success": 100,
           "error": 0,
-          "min": 487,
-          "max": 548,
-          "total": 50157,
-          "average": "501.57",
-          "stdDev": "9.51",
+          "min": 65,
+          "max": 73,
+          "total": 6717,
+          "average": "67.17",
+          "stdDev": "1.60",
           "percentile": {
-            "95th": 521,
-            "75th": 503,
-            "50th": 500,
-            "25th": 496,
-            "5th": 500
+            "95th": 70.5,
+            "75th": 68,
+            "50th": 67,
+            "25th": 66,
+            "5th": 67
+          }
+        }
+      },
+      "Ruby": {
+        "results": {
+          "runs": "100",
+          "success": 100,
+          "error": 0,
+          "min": 143,
+          "max": 197,
+          "total": 15282,
+          "average": "152.82",
+          "stdDev": "10.78",
+          "percentile": {
+            "95th": 176.5,
+            "75th": 154.5,
+            "50th": 149,
+            "25th": 146,
+            "5th": 149
+          }
+        }
+      },
+      "JavaScript": {
+        "results": {
+          "runs": "100",
+          "success": 100,
+          "error": 0,
+          "min": 197,
+          "max": 244,
+          "total": 20463,
+          "average": "204.63",
+          "stdDev": "6.71",
+          "percentile": {
+            "95th": 216.5,
+            "75th": 207,
+            "50th": 203,
+            "25th": 201,
+            "5th": 203
+          }
+        }
+      },
+      "Haskell": {
+        "results": {
+          "runs": "100",
+          "success": 100,
+          "error": 0,
+          "min": 198,
+          "max": 248,
+          "total": 20960,
+          "average": "209.60",
+          "stdDev": "8.32",
+          "percentile": {
+            "95th": 225,
+            "75th": 212.5,
+            "50th": 208,
+            "25th": 204,
+            "5th": 208
+          }
+        }
+      },
+      "Python": {
+        "results": {
+          "runs": "100",
+          "success": 100,
+          "error": 0,
+          "min": 224,
+          "max": 265,
+          "total": 23320,
+          "average": "233.20",
+          "stdDev": "7.79",
+          "percentile": {
+            "95th": 249.5,
+            "75th": 236,
+            "50th": 230,
+            "25th": 228,
+            "5th": 230
+          }
+        }
+      },
+      "Java": {
+        "results": {
+          "runs": "100",
+          "success": 100,
+          "error": 0,
+          "min": 243,
+          "max": 277,
+          "total": 25200,
+          "average": "252.00",
+          "stdDev": "5.11",
+          "percentile": {
+            "95th": 261,
+            "75th": 254,
+            "50th": 251,
+            "25th": 249,
+            "5th": 251
+          }
+        }
+      },
+      "Scala": {
+        "results": {
+          "runs": "100",
+          "success": 100,
+          "error": 0,
+          "min": 493,
+          "max": 548,
+          "total": 50767,
+          "average": "507.67",
+          "stdDev": "11.12",
+          "percentile": {
+            "95th": 537.5,
+            "75th": 511,
+            "50th": 504.5,
+            "25th": 500,
+            "5th": 504.5
           }
         }
       }
@@ -254,3 +222,5 @@ Here's the output if you just want the numbers:
 
 - Create a Makefile
 - Further optimizations
+    - Only lowercase first letter
+    - Only check half of word
