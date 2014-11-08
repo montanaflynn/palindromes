@@ -19,7 +19,7 @@ The logic for finding the palindromes is simple and each program must return the
 I ran each program 10 times with `time` and picked the fastest result:
 
     Clang 600.0.51:  0.03s user   0.00s system    96% cpu   0.031 total
-    Rust 0.12.0:     0.03s user   0.00s system    95% cpu   0.036 total
+    Rust 0.13.0:     0.03s user   0.00s system    91% cpu   0.032 total
     Golang 1.3.1:    0.06s user   0.00s system    98% cpu   0.064 total
     Ruby 2.0.0:      0.15s user   0.01s system    99% cpu   0.154 total
     Node 0.11.13:    0.18s user   0.03s system   101% cpu   0.201 total
@@ -46,41 +46,41 @@ Here's the output from the benchmarker if you just want the numbers:
 
 ```json
 {
-  "C": {
+  "Rust": {
     "results": {
       "runs": 100,
       "success": 100,
       "error": 0,
       "min": 32,
-      "max": 42,
-      "total": 3432,
-      "average": 34,
-      "stdDev": 2,
+      "max": 37,
+      "total": 3386,
+      "average": 33,
+      "stdDev": 1,
       "percentile": {
-        "95th": 38.5,
-        "75th": 36,
+        "95th": 36,
+        "75th": 34,
         "50th": 34,
         "25th": 33,
         "5th": 34
       }
     }
   },
-  "Rust": {
+  "C": {
     "results": {
       "runs": 100,
       "success": 100,
       "error": 0,
-      "min": 35,
-      "max": 41,
-      "total": 3647,
-      "average": 36,
-      "stdDev": 1,
+      "min": 31,
+      "max": 44,
+      "total": 3467,
+      "average": 34,
+      "stdDev": 2,
       "percentile": {
         "95th": 39,
-        "75th": 37,
-        "50th": 36,
-        "25th": 36,
-        "5th": 36
+        "75th": 36,
+        "50th": 34,
+        "25th": 33,
+        "5th": 34
       }
     }
   },
@@ -90,16 +90,16 @@ Here's the output from the benchmarker if you just want the numbers:
       "success": 100,
       "error": 0,
       "min": 65,
-      "max": 72,
-      "total": 6703,
+      "max": 75,
+      "total": 6799,
       "average": 67,
-      "stdDev": 1,
+      "stdDev": 2,
       "percentile": {
-        "95th": 70,
-        "75th": 68,
-        "50th": 67,
-        "25th": 66,
-        "5th": 67
+        "95th": 71,
+        "75th": 69,
+        "50th": 68,
+        "25th": 67,
+        "5th": 68
       }
     }
   },
@@ -108,17 +108,17 @@ Here's the output from the benchmarker if you just want the numbers:
       "runs": 100,
       "success": 100,
       "error": 0,
-      "min": 143,
-      "max": 180,
-      "total": 15405,
-      "average": 154,
-      "stdDev": 8,
+      "min": 145,
+      "max": 177,
+      "total": 15656,
+      "average": 156,
+      "stdDev": 5,
       "percentile": {
-        "95th": 169,
-        "75th": 159.5,
-        "50th": 152,
-        "25th": 148,
-        "5th": 152
+        "95th": 167,
+        "75th": 160,
+        "50th": 156,
+        "25th": 153,
+        "5th": 156
       }
     }
   },
@@ -127,17 +127,17 @@ Here's the output from the benchmarker if you just want the numbers:
       "runs": 100,
       "success": 100,
       "error": 0,
-      "min": 194,
-      "max": 279,
-      "total": 20781,
-      "average": 207,
-      "stdDev": 12,
+      "min": 200,
+      "max": 231,
+      "total": 21006,
+      "average": 210,
+      "stdDev": 5,
       "percentile": {
-        "95th": 231,
-        "75th": 211.5,
-        "50th": 204,
-        "25th": 200,
-        "5th": 204
+        "95th": 220.5,
+        "75th": 213,
+        "50th": 210,
+        "25th": 206,
+        "5th": 210
       }
     }
   },
@@ -146,17 +146,17 @@ Here's the output from the benchmarker if you just want the numbers:
       "runs": 100,
       "success": 100,
       "error": 0,
-      "min": 196,
-      "max": 266,
-      "total": 21519,
-      "average": 215,
-      "stdDev": 11,
+      "min": 201,
+      "max": 280,
+      "total": 22885,
+      "average": 228,
+      "stdDev": 16,
       "percentile": {
-        "95th": 234,
-        "75th": 224,
-        "50th": 213,
-        "25th": 206.5,
-        "5th": 213
+        "95th": 267.5,
+        "75th": 236.5,
+        "50th": 226.5,
+        "25th": 216,
+        "5th": 226.5
       }
     }
   },
@@ -165,17 +165,17 @@ Here's the output from the benchmarker if you just want the numbers:
       "runs": 100,
       "success": 100,
       "error": 0,
-      "min": 223,
-      "max": 282,
-      "total": 23791,
-      "average": 237,
-      "stdDev": 11,
+      "min": 225,
+      "max": 268,
+      "total": 24199,
+      "average": 241,
+      "stdDev": 9,
       "percentile": {
-        "95th": 256.5,
-        "75th": 244,
-        "50th": 237,
-        "25th": 229,
-        "5th": 237
+        "95th": 256,
+        "75th": 248,
+        "50th": 242,
+        "25th": 234.5,
+        "5th": 242
       }
     }
   },
@@ -184,17 +184,17 @@ Here's the output from the benchmarker if you just want the numbers:
       "runs": 100,
       "success": 100,
       "error": 0,
-      "min": 244,
-      "max": 275,
-      "total": 25673,
-      "average": 256,
-      "stdDev": 7,
+      "min": 247,
+      "max": 270,
+      "total": 25716,
+      "average": 257,
+      "stdDev": 5,
       "percentile": {
-        "95th": 273,
-        "75th": 261.5,
-        "50th": 256,
-        "25th": 250,
-        "5th": 256
+        "95th": 268,
+        "75th": 261,
+        "50th": 256.5,
+        "25th": 253,
+        "5th": 256.5
       }
     }
   },
@@ -203,17 +203,17 @@ Here's the output from the benchmarker if you just want the numbers:
       "runs": 100,
       "success": 100,
       "error": 0,
-      "min": 499,
-      "max": 573,
-      "total": 52006,
-      "average": 520,
-      "stdDev": 15,
+      "min": 510,
+      "max": 608,
+      "total": 53919,
+      "average": 539,
+      "stdDev": 16,
       "percentile": {
-        "95th": 545,
-        "75th": 530,
-        "50th": 517.5,
-        "25th": 506.5,
-        "5th": 517.5
+        "95th": 565.5,
+        "75th": 546.5,
+        "50th": 538,
+        "25th": 527.5,
+        "5th": 538
       }
     }
   }
