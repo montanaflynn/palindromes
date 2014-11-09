@@ -45,7 +45,9 @@ Here are the optimization options that I used:
 
 ### More advanced benchmarks:
 
-I've included a `Benchfile` which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). __Note:__ You must compile the C, Go, Haskell, Java, Scala and Rust programs (assuming you have the compilers in your path, running `make` should do the trick) and have Node, Java, Scala, Ruby, Python and PHP in your path if you want to benchmark the programs yourself. 
+I've included a `Benchfile` which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). 
+
+__Note:__ You must compile the C, Go, Haskell, Java, Scala and Rust programs (if you have the compilers in your path, running `make` should do the trick) and have Node, Java, Scala, Ruby, Python and PHP in your path if you want to benchmark the programs yourself. 
 
 #### Results:
 
