@@ -1,0 +1,67 @@
+[
+	{
+		"name":"C",
+		"command":"./C/palindromes"
+		
+	},
+	{
+		"name":"Rust",
+		"command":"./Rust/palindromes"
+		
+	},
+	{
+		"name":"Go",
+		"command":"./Go/palindromes"
+		
+	},
+	{
+		"name":"D",
+		"command":"./D/palindromes"
+		
+	},
+	{
+		"name":"Lua",
+		"command":"luajit -O3 ./Lua/palindromes.lua"
+		
+	},
+	{
+		"name":"Ruby",
+		"command":"ruby ./Ruby/palindromes.rb"
+		
+	},
+	{
+		"name":"JavaScript",
+		"command":"node ./JavaScript/palindromes.js"
+		
+	},
+	{
+		"name":"PHP",
+		"command":"php ./PHP/palindromes.php"
+		
+	},
+	{
+		"name":"Haskell",
+		"command":"./Haskell/palindromes"
+		
+	},
+	{
+		"name":"Python",
+		"command":"python ./Python/palindromes.py"
+		
+	},
+	{
+		"name":"Java",
+		"command":"java -classpath ./Java Palindromes"
+		
+	},
+	{
+		"name":"Julia",
+		"command":"julia ./Julia/palindromes.jl"
+		
+	},
+	{
+		"name":"Scala",
+		"command":"scala -classpath ./Scala Palindromes"
+		
+	}
+]
