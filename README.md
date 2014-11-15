@@ -21,6 +21,7 @@ I ran each program 10 times with `time` and picked the fastest result:
     C 600.0.51:      0.03s user   0.00s system    96% cpu   0.032 total
     Rust 0.13.0:     0.03s user   0.00s system    91% cpu   0.032 total
     Golang 1.3.1:    0.06s user   0.00s system    98% cpu   0.063 total
+    Perl 5.18.2:     0.08s user   0.00s system    97% cpu   0.081 total
     LuaJIT 2.0.3:    0.12s user   0.00s system    98% cpu   0.123 total
     D 2.066.1:       0.14s user   0.00s system    98% cpu   0.143 total
     Ruby 2.0.0:      0.15s user   0.01s system    99% cpu   0.154 total
@@ -47,7 +48,7 @@ Here are the optimization options that I used:
 
 I've included a `Benchfile` which you can use with [benchmarker](https://github.com/montanaflynn/benchmarker). 
 
-__Note:__ You must compile the C, Go, Haskell, Java, Scala and Rust programs (if you have the compilers in your path, running `make` should do the trick) and have Node, Java, Scala, Ruby, Python and PHP in your path if you want to benchmark the programs yourself. 
+__Note:__ You must compile the C, Go, Haskell, Java, Scala and Rust programs (if you have the compilers in your path, running `make` should do the trick) and have Node, Java, Scala, Ruby, Python, PHP and Perl in your path if you want to benchmark the programs yourself. 
 
 #### Results:
 
@@ -56,36 +57,16 @@ __Note:__ You must compile the C, Go, Haskell, Java, Scala and Rust programs (if
   {
     "name": "Rust",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
       "min": 31,
-      "max": 35,
-      "total": 3153,
-      "average": 31,
+      "max": 34,
+      "total": 320,
+      "average": 32,
       "stdDev": 0,
       "percentile": {
-        "90th": 32,
-        "75th": 32,
-        "50th": 31,
-        "25th": 31,
-        "10th": 31
-      }
-    }
-  },
-  {
-    "name": "C",
-    "results": {
-      "runs": 100,
-      "success": 100,
-      "error": 0,
-      "min": 31,
-      "max": 42,
-      "total": 3208,
-      "average": 32,
-      "stdDev": 1,
-      "percentile": {
-        "90th": 34,
+        "90th": 33.5,
         "75th": 32,
         "50th": 32,
         "25th": 31,
@@ -94,80 +75,120 @@ __Note:__ You must compile the C, Go, Haskell, Java, Scala and Rust programs (if
     }
   },
   {
-    "name": "Go",
+    "name": "C",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 63,
-      "max": 74,
-      "total": 6529,
-      "average": 65,
+      "min": 32,
+      "max": 37,
+      "total": 335,
+      "average": 33,
       "stdDev": 1,
       "percentile": {
-        "90th": 68,
-        "75th": 65,
-        "50th": 65,
-        "25th": 64,
-        "10th": 64
+        "90th": 36.5,
+        "75th": 34,
+        "50th": 33,
+        "25th": 32,
+        "10th": 32
+      }
+    }
+  },
+  {
+    "name": "Go",
+    "results": {
+      "runs": 10,
+      "success": 10,
+      "error": 0,
+      "min": 64,
+      "max": 70,
+      "total": 666,
+      "average": 66,
+      "stdDev": 1,
+      "percentile": {
+        "90th": 69,
+        "75th": 68,
+        "50th": 66.5,
+        "25th": 65,
+        "10th": 64.5
+      }
+    }
+  },
+  {
+    "name": "Perl",
+    "results": {
+      "runs": 10,
+      "success": 10,
+      "error": 0,
+      "min": 80,
+      "max": 95,
+      "total": 873,
+      "average": 87,
+      "stdDev": 5,
+      "percentile": {
+        "90th": 94,
+        "75th": 91,
+        "50th": 88.5,
+        "25th": 81,
+        "10th": 80
       }
     }
   },
   {
     "name": "Lua",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 114,
-      "max": 151,
-      "total": 12798,
-      "average": 127,
-      "stdDev": 8,
+      "min": 119,
+      "max": 141,
+      "total": 1266,
+      "average": 126,
+      "stdDev": 7,
       "percentile": {
-        "90th": 139,
-        "75th": 133,
-        "50th": 128.5,
-        "25th": 121.5,
-        "10th": 116
+        "90th": 139.5,
+        "75th": 129,
+        "50th": 125.5,
+        "25th": 120,
+        "10th": 119
       }
     }
   },
   {
     "name": "D",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 133,
-      "max": 171,
-      "total": 14632,
-      "average": 146,
-      "stdDev": 9,
+      "min": 138,
+      "max": 146,
+      "total": 1423,
+      "average": 142,
+      "stdDev": 3,
       "percentile": {
-        "90th": 160,
-        "75th": 153,
-        "50th": 146.5,
-        "25th": 137.5,
-        "10th": 134
+        "90th": 146,
+        "75th": 146,
+        "50th": 142.5,
+        "25th": 139,
+        "10th": 138
       }
     }
   },
   {
     "name": "Ruby",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 145,
-      "max": 182,
-      "total": 16319,
-      "average": 163,
-      "stdDev": 9,
+      "min": 149,
+      "max": 179,
+      "total": 1597,
+      "average": 159,
+      "stdDev": 8,
       "percentile": {
-        "90th": 177,
-        "75th": 172.5,
-        "50th": 161,
+        "90th": 172.5,
+        "75th": 165,
+        "50th": 156.5,
         "25th": 154,
         "10th": 151
       }
@@ -176,140 +197,140 @@ __Note:__ You must compile the C, Go, Haskell, Java, Scala and Rust programs (if
   {
     "name": "Haskell",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 171,
-      "max": 220,
-      "total": 18498,
-      "average": 184,
-      "stdDev": 12,
+      "min": 184,
+      "max": 208,
+      "total": 1949,
+      "average": 194,
+      "stdDev": 8,
       "percentile": {
-        "90th": 207,
-        "75th": 189.5,
-        "50th": 180.5,
-        "25th": 175,
-        "10th": 173
+        "90th": 207.5,
+        "75th": 205,
+        "50th": 191.5,
+        "25th": 190,
+        "10th": 186
       }
     }
   },
   {
     "name": "JavaScript",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 195,
-      "max": 260,
-      "total": 21781,
-      "average": 217,
-      "stdDev": 14,
+      "min": 200,
+      "max": 214,
+      "total": 2071,
+      "average": 207,
+      "stdDev": 3,
       "percentile": {
-        "90th": 237.5,
-        "75th": 230,
-        "50th": 217,
-        "25th": 205.5,
-        "10th": 199.5
-      }
-    }
-  },
-  {
-    "name": "PHP",
-    "results": {
-      "runs": 100,
-      "success": 100,
-      "error": 0,
-      "min": 220,
-      "max": 271,
-      "total": 23187,
-      "average": 231,
-      "stdDev": 13,
-      "percentile": {
-        "90th": 253.5,
-        "75th": 242.5,
-        "50th": 225,
-        "25th": 221,
-        "10th": 220
+        "90th": 212.5,
+        "75th": 209,
+        "50th": 207,
+        "25th": 206,
+        "10th": 201.5
       }
     }
   },
   {
     "name": "Python",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 222,
-      "max": 343,
-      "total": 24099,
-      "average": 240,
-      "stdDev": 19,
+      "min": 231,
+      "max": 260,
+      "total": 2388,
+      "average": 238,
+      "stdDev": 8,
       "percentile": {
-        "90th": 263,
-        "75th": 245.5,
-        "50th": 236.5,
-        "25th": 228,
-        "10th": 225.5
+        "90th": 254.5,
+        "75th": 241,
+        "50th": 234.5,
+        "25th": 234,
+        "10th": 231.5
+      }
+    }
+  },
+  {
+    "name": "PHP",
+    "results": {
+      "runs": 10,
+      "success": 10,
+      "error": 0,
+      "min": 231,
+      "max": 253,
+      "total": 2417,
+      "average": 241,
+      "stdDev": 8,
+      "percentile": {
+        "90th": 252.5,
+        "75th": 249,
+        "50th": 241.5,
+        "25th": 234,
+        "10th": 231.5
       }
     }
   },
   {
     "name": "Java",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 244,
-      "max": 267,
-      "total": 25265,
-      "average": 252,
-      "stdDev": 4,
+      "min": 248,
+      "max": 256,
+      "total": 2515,
+      "average": 251,
+      "stdDev": 2,
       "percentile": {
-        "90th": 259,
-        "75th": 255,
-        "50th": 252,
-        "25th": 249,
-        "10th": 247.5
+        "90th": 255,
+        "75th": 253,
+        "50th": 251.5,
+        "25th": 250,
+        "10th": 248.5
       }
     }
   },
   {
     "name": "Julia",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 446,
-      "max": 515,
-      "total": 46974,
+      "min": 460,
+      "max": 479,
+      "total": 4693,
       "average": 469,
-      "stdDev": 16,
+      "stdDev": 6,
       "percentile": {
-        "90th": 493,
-        "75th": 483,
-        "50th": 464,
-        "25th": 457,
-        "10th": 453.5
+        "90th": 479,
+        "75th": 474,
+        "50th": 468,
+        "25th": 465,
+        "10th": 462
       }
     }
   },
   {
     "name": "Scala",
     "results": {
-      "runs": 100,
-      "success": 100,
+      "runs": 10,
+      "success": 10,
       "error": 0,
-      "min": 491,
-      "max": 540,
-      "total": 50511,
-      "average": 505,
-      "stdDev": 10,
+      "min": 506,
+      "max": 526,
+      "total": 5115,
+      "average": 511,
+      "stdDev": 5,
       "percentile": {
-        "90th": 522,
-        "75th": 508,
-        "50th": 502,
-        "25th": 497,
-        "10th": 495
+        "90th": 521,
+        "75th": 515,
+        "50th": 508.5,
+        "25th": 507,
+        "10th": 506.5
       }
     }
   }

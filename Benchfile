@@ -40,6 +40,11 @@
 		
 	},
 	{
+		"name":"Perl",
+		"command":"perl ./Perl/palindromes.pl"
+		
+	},
+	{
 		"name":"Haskell",
 		"command":"./Haskell/palindromes"
 		
