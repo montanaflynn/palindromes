@@ -9,23 +9,30 @@ import (
 
 func main() {
 	file, err := os.Open("/usr/share/dict/words")
-	if err != nil { log.Fatal(err) }
+	if err != nil {
+		log.Fatal(err)
+	}
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		word := scanner.Text()
-		if isPalindrome(word) == true {
-			fmt.Printf("%s is a palindrome\n", word)
+		if isPalindrome(word) {
+			fmt.Println(word, "is a palindrome")
 		}
 	}
 }
 
 func isPalindrome(word string) bool {
-	var wl int
+	var wl, mid, i int
+
 	wl = len(word)
-        mid := int(wl/2)
-	for i:=0;i<=mid;i++ {
-		if word[i] != word[wl-1-i]{return false}
+	mid = wl >> 1
+	wl--
+	for i = 0; mid > i; i++ {
+		if word[i]^word[wl-i] != 0 {
+			return false
+		}
 	}
+
 	return true
 }
