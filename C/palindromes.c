@@ -47,6 +47,6 @@ int main()
         strcpy(backwards, line);
         reverse(backwards);
         if (strcmp(line, backwards) == 0)
-            printf("%s is a palindrone\n", word);
+            printf("%s is a palindrome\n", word);
     }
 }
