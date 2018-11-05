@@ -23,33 +23,12 @@ func main() {
 }
 
 func isPalindrome(word string) bool {
-	var beg string
-	var end string
-	var wl int
+	var wordLen int = len(word)
 
-	wl = len(word)
-	cut := wl / 2
-
-	beg = word[:cut]
-	beg = strings.ToLower(beg)
-
-	if wl % 2 == 0 {
-		end = word[cut:]
-	} else {
-		end = word[cut+1:]
+	for i := 0; i < wordLen / 2; i++ {
+		if word[i] != word[wordLen - i - 1] {
+			return false
+		}
 	}
-
-	wl = len(end)
-	rev := make([]byte, wl)
-	wl--
-	for i := 0; i <= wl; i++ {
-		rev[wl-i] = end[i]
-	}
-	end = string(rev)
-
-	if beg == end {
-		return true
-	} else {
-		return false
-	}
+	return true
 }
