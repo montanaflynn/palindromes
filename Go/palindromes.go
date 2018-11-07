@@ -16,7 +16,7 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		word := scanner.Text()
-		if isPalindrome(word) == true {
+		if isPalindrome(strings.ToLower(word)) == true {
 			fmt.Printf("%s is a palindrome\n", word)
 		}
 	}
